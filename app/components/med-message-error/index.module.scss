@@ -1,0 +1,10 @@
+.errorContent {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    .errorText {
+        color: #d2122e;
+        font-size: 14px;
+    }
+}

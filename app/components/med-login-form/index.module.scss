@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .loginFormContent {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .loginFormContent {
+        display: flex;
+        flex-direction: column;
+        gap: 16px; /* Espaçamento entre os elementos */
+    }
+
+    .checkboxContainer {
+        display: flex;
+        align-items: center;
+        gap: 28px; /* Espaçamento entre o checkbox e o label */
+        position: relative;
+    }
+
+    .checkbox {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    .checkboxLabel {
+        position: relative;
+        padding-left: 32px; /* Espaçamento para o substituto do checkbox */
+        cursor: pointer;
+        user-select: none;
+        font-size: 15px;
+        color: var(--gray-400);
+    }
+
+    .checkboxLabel::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        transition: background-color 0.3s;
+        border-radius: 4px;
+    }
+
+    .checkbox:checked + .checkboxLabel::before {
+        background-color: #49b4bb; /* Cor de fundo quando o checkbox está marcado */
+    }
+
+    .footerButtons {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

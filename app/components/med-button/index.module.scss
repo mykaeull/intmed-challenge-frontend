@@ -1,0 +1,10 @@
+.secondaryButton {
+    background-color: var(--gray-100);
+    color: #49b4bb;
+    box-shadow: none;
+}
+
+.secondaryButton:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #d9f1f3;
+}
