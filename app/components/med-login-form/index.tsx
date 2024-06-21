@@ -42,7 +42,6 @@ export const MedLoginForm = () => {
     const router = useRouter();
 
     const onSubmit = async (data: LoginFormData) => {
-        // console.log("data: ", data);
         try {
             const response = await doLogin(data.login, data.password);
             const token = response.data.token;
@@ -53,7 +52,7 @@ export const MedLoginForm = () => {
             router.push("/consultations");
         } catch {
             console.log("error");
-            toast.error("Login ou senha inválida!");
+            toast.error("Login ou senha inválida.");
         }
     };
 

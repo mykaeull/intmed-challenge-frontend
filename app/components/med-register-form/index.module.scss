@@ -1,9 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
 
-    .loginFormContent {
+    .subtitle {
+        color: var(--gray-700);
+        margin-bottom: 16px;
+    }
+
+    .registerFormContent {
         display: flex;
         flex-direction: column;
         gap: 16px;

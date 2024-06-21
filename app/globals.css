@@ -115,6 +115,13 @@ a {
     text-decoration: none;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 button {
     padding: 12px 16px;
     width: 180px;

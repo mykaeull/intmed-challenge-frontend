@@ -1,7 +1,13 @@
+import { MedRegisterForm } from "../components/med-register-form";
+
 export const metadata = {
     title: "Register",
 };
 
 export default function Register() {
-    return <h1>Register</h1>;
+    return (
+        <main>
+            <MedRegisterForm />
+        </main>
+    );
 }

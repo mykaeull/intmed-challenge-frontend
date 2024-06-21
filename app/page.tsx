@@ -5,7 +5,7 @@ import { MedLoginForm } from "./components/med-login-form";
 
 export default function Home() {
     return (
-        <main className={styles.main}>
+        <main>
             <MedLoginForm />
         </main>
     );
