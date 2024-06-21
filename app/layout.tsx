@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import { Toaster } from "./components/toaster";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import ThemeToggleButton from "./components/theme-toggle-button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +23,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <Toaster />
-                {children}
+                <ThemeProvider>
+                    <Toaster />
+                    <ThemeToggleButton />
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

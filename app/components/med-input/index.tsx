@@ -1,8 +1,9 @@
 "use client";
 
-import { InputHTMLAttributes, useState, forwardRef } from "react";
+import { InputHTMLAttributes, useState, forwardRef, useContext } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import styles from "./index.module.scss";
+import { ThemeContext } from "@/app/contexts/ThemeContext";
 
 interface MedInputProps extends InputHTMLAttributes<HTMLInputElement> {
     placeholder?: string;
@@ -18,6 +19,8 @@ export const MedInput = forwardRef<HTMLInputElement, MedInputProps>(
         const [isFocused, setIsFocused] = useState(false);
         const [isPasswordOpen, setIsPasswordOpen] = useState(false);
 
+        const { theme } = useContext(ThemeContext);
+
         const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
             setIsFocused(true);
             if (onFocus) onFocus(event);
@@ -31,7 +34,15 @@ export const MedInput = forwardRef<HTMLInputElement, MedInputProps>(
         return (
             <div className={styles.medInputContainer}>
                 {(isFocused || value) && (
-                    <span className={styles.inputLabel}>{placeholder}</span>
+                    <span
+                        style={{
+                            backgroundColor:
+                                theme === "light" ? "#f3f4f6" : "#1f2937",
+                        }}
+                        className={styles.inputLabel}
+                    >
+                        {placeholder}
+                    </span>
                 )}
                 {type === "password" && (
                     <>
@@ -59,6 +70,11 @@ export const MedInput = forwardRef<HTMLInputElement, MedInputProps>(
 
                 <input
                     className={styles.medInput}
+                    style={{
+                        backgroundColor:
+                            theme === "light" ? "#f3f4f6" : "#1f2937",
+                        color: theme === "light" ? "#6b7280" : "#e5e7eb",
+                    }}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     ref={ref}

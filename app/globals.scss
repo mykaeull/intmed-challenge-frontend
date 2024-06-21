@@ -107,7 +107,28 @@ body {
             rgb(var(--background-end-rgb))
         )
         rgb(var(--background-start-rgb)); */
+    /* background-color: var(--gray-100); */
+}
+
+.light {
     background-color: var(--gray-100);
+    color: #000000;
+}
+
+.dark {
+    background-color: var(--gray-800);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: var(--gray-200) !important;
+    }
+
+    .inputLabel {
+        background-color: var(--gray-800) !important;
+    }
 }
 
 a {
