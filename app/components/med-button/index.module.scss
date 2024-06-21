@@ -1,3 +1,13 @@
+.primaryButton {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #49b4bb;
+}
+
+.primaryButton:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #42c9d3;
+}
+
 .secondaryButton {
     background-color: transparent;
     color: #49b4bb;
@@ -7,4 +17,22 @@
 .secondaryButton:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #d9f1f3;
+}
+
+.smButton {
+    padding: 6px 12px;
+    width: 120px;
+    font-size: 14px;
+}
+
+.mdButton {
+    padding: 10px 14px;
+    width: 140px;
+    font-size: 16px;
+}
+
+.lgButton {
+    padding: 12px 16px;
+    width: 180px;
+    font-size: 18px;
 }

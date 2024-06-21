@@ -106,10 +106,12 @@ export const MedLoginForm = () => {
                 </div>
 
                 <footer className={styles.footerButtons}>
-                    <MedButton type="button" color="secondary">
+                    <MedButton type="button" color="secondary" size="lg">
                         <Link href="/register">Criar Conta</Link>
                     </MedButton>
-                    <MedButton type="submit">Acessar</MedButton>
+                    <MedButton type="submit" size="lg">
+                        Acessar
+                    </MedButton>
                 </footer>
             </form>
         </div>

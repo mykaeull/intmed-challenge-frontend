@@ -1,9 +1,16 @@
 import AuthGuard from "../components/auth-guard";
+import { MedConsultationsTable } from "../components/med-consultations-table";
+
+export const metadata = {
+    title: "Consultations",
+};
 
 const Consultations = () => {
     return (
         <AuthGuard>
-            <h1>Consultations</h1>
+            <main style={{ height: "300px" }}>
+                <MedConsultationsTable />
+            </main>
         </AuthGuard>
     );
 };
