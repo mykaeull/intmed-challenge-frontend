@@ -47,6 +47,7 @@ export const MedLoginForm = () => {
             const token = response.data.token;
 
             localStorage.setItem("token", token);
+            sessionStorage.setItem("login", data.login);
             toast.success("Logado com sucesso!");
             reset();
             router.push("/consultations");

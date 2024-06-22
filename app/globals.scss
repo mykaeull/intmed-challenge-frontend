@@ -113,6 +113,10 @@ body {
 .light {
     background-color: var(--gray-100);
     color: #000000;
+
+    h4 {
+        color: var(--gray-400) !important;
+    }
 }
 
 .dark {
@@ -151,7 +155,7 @@ a {
 }
 
 button {
-    border-radius: 12px;
+    border-radius: 0.75rem;
     color: #f9fafb;
     display: flex;
     align-items: center;
@@ -175,3 +179,21 @@ main {
         color-scheme: dark;
     }
 } */
+
+@media (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 12px;
+    }
+}

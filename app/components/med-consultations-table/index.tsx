@@ -1,6 +1,9 @@
 "use client";
 
-import { getConsultations } from "@/app/api/services/ConsultationsService";
+import {
+    deleteConsultation,
+    getConsultations,
+} from "@/app/api/services/ConsultationsService";
 import { formatDate } from "@/app/utils";
 import { useEffect, useState } from "react";
 import { HiOutlineX } from "react-icons/hi";
@@ -8,19 +11,20 @@ import { MedButton } from "../med-button";
 import { MedLoading } from "../med-loading";
 import { MedTable } from "../med-table";
 import { HiOutlinePlusSm } from "react-icons/hi";
+import { toast } from "react-hot-toast";
 import styles from "./index.module.scss";
 
 interface DataProps {
-    id: number;
+    _id: number;
     dia: string;
     horario: string;
     data_agendamento: string;
     medico: {
-        id: number;
+        _id: number;
         crm: number;
         nome: string;
         especialidade: {
-            id: number;
+            _id: number;
             nome: string;
         };
     };
@@ -29,6 +33,7 @@ interface DataProps {
 export const MedConsultationsTable = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [refresh, setRefresh] = useState(false);
 
     const columns = [
         { header: "ESPECIALIDADE", accessor: "specialty" },
@@ -48,7 +53,7 @@ export const MedConsultationsTable = () => {
                         professional: d.medico.nome,
                         date: formatDate(d.dia),
                         hour: d.horario,
-                        id: d.id,
+                        id: d["_id"],
                     };
                 });
                 // setTimeout(() => {
@@ -56,14 +61,25 @@ export const MedConsultationsTable = () => {
                 //     setLoading(false);
                 // }, 2000);
                 setData(formatedData);
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching protected data:", error);
-                // setLoading(false);
+                setLoading(false);
             }
         };
         fetchConsultationsData();
-        setLoading(false);
-    }, []);
+    }, [refresh]);
+
+    async function handleDeleteConsultation(id: number | string) {
+        try {
+            const response = await deleteConsultation(id);
+            toast.success("Consulta desmarcada!");
+            setRefresh((prev) => !prev);
+        } catch {
+            console.log("error");
+            toast.error("Houve um erro ao desmarcar a consulta.");
+        }
+    }
 
     const ExtraColumnComponent = (id: number | string) => {
         return (
@@ -71,6 +87,7 @@ export const MedConsultationsTable = () => {
                 size="sm"
                 color="secondary"
                 icon={<HiOutlineX color="#49B4BB" size={16} />}
+                onClick={() => handleDeleteConsultation(id)}
             >
                 Desmarcar
             </MedButton>
@@ -86,8 +103,18 @@ export const MedConsultationsTable = () => {
                     <div className={styles.titleTable}>
                         <h2>Consulta Clínica</h2>
                         <MedButton
-                            style={{ width: "180px", padding: "6px 12px" }}
-                            icon={<HiOutlinePlusSm size={24} />}
+                            style={{
+                                width: "11.25rem",
+                                padding: "0.375rem 0.75rem",
+                            }}
+                            icon={
+                                <HiOutlinePlusSm
+                                    style={{
+                                        width: "1.5rem",
+                                        height: "1.5rem",
+                                    }}
+                                />
+                            }
                         >
                             Nova Consulta
                         </MedButton>
@@ -96,6 +123,7 @@ export const MedConsultationsTable = () => {
                         columns={columns}
                         data={data}
                         extraColumn={ExtraColumnComponent}
+                        emptyTableText="Sem consultas agendadas."
                     />
                 </div>
             )}

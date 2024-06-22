@@ -1,12 +1,33 @@
 .containerTable {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    width: 50vw;
+    gap: 1rem;
+    width: 62.5rem;
 
     .titleTable {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+}
+
+@media (max-width: 900px) {
+    .containerTable {
+        width: 50rem;
+    }
+}
+@media (max-width: 680px) {
+    .containerTable {
+        width: 45rem;
+    }
+}
+@media (max-width: 560px) {
+    .containerTable {
+        width: 40rem;
+    }
+}
+@media (max-width: 500px) {
+    .containerTable {
+        width: 30rem;
     }
 }

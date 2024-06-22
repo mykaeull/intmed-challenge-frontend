@@ -17,7 +17,7 @@ const ThemeToggleButton: React.FC = () => {
     }, [theme]);
 
     return (
-        <div style={{ position: "absolute", top: "40px", right: "40px" }}>
+        <div className={styles.containerCheckbox}>
             <input
                 type="checkbox"
                 id="checkbox"

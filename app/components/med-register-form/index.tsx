@@ -70,7 +70,7 @@ export const MedRegisterForm = () => {
 
     return (
         <div className={styles.container}>
-            <div style={{ marginBottom: "24px" }}>
+            <div style={{ marginBottom: "1.5rem" }}>
                 <MedTitle />
             </div>
 

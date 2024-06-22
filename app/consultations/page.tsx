@@ -8,7 +8,7 @@ export const metadata = {
 const Consultations = () => {
     return (
         <AuthGuard>
-            <main style={{ height: "300px" }}>
+            <main style={{ height: "35vh" }}>
                 <MedConsultationsTable />
             </main>
         </AuthGuard>

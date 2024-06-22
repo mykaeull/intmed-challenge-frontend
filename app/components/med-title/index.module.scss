@@ -1,8 +1,13 @@
 .medTitle {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 1rem;
     align-items: center;
     justify-content: flex-start;
     color: var(--gray-700);
+
+    img {
+        width: 3.125rem;
+        height: 3.125rem;
+    }
 }

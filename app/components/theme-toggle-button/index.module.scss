@@ -1,3 +1,15 @@
+.containerCheckbox {
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+}
+
+@media (max-width: 1230px) {
+    .containerCheckbox {
+        top: 0.5rem;
+    }
+}
+
 .checkbox {
     opacity: 0;
     position: absolute;
