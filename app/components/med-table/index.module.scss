@@ -2,23 +2,23 @@
     overflow-x: auto;
     margin: 1.25rem 0;
 
-    -webkit-overflow-scrolling: touch; // Suaviza o scroll no iOS
+    -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
-        height: 8px; // Altura da barra de rolagem horizontal
+        height: 8px;
     }
 
     &::-webkit-scrollbar-track {
-        background: #f1f1f1; // Cor do fundo da barra de rolagem
+        background: #f1f1f1;
         border-radius: 16px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #888; // Cor da barra de rolagem
+        background: #888;
         border-radius: 16px;
 
         &:hover {
-            background: #555; // Cor da barra de rolagem ao passar o mouse
+            background: #555;
         }
     }
 }

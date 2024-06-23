@@ -13,6 +13,8 @@ import { MedTable } from "../med-table";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import styles from "./index.module.scss";
+import { MedModal } from "../med-modal";
+import { MedConsultationForm } from "../med-consultation-form";
 
 interface DataProps {
     _id: number;
@@ -94,6 +96,28 @@ export const MedConsultationsTable = () => {
         );
     };
 
+    const NewConsultationButton = (openModal: () => void) => {
+        return (
+            <MedButton
+                onClick={openModal}
+                style={{
+                    width: "11.25rem",
+                    padding: "0.375rem 0.75rem",
+                }}
+                icon={
+                    <HiOutlinePlusSm
+                        style={{
+                            width: "1.5rem",
+                            height: "1.5rem",
+                        }}
+                    />
+                }
+            >
+                Nova Consulta
+            </MedButton>
+        );
+    };
+
     return (
         <>
             {loading ? (
@@ -102,22 +126,9 @@ export const MedConsultationsTable = () => {
                 <div className={styles.containerTable}>
                     <div className={styles.titleTable}>
                         <h2>Consulta Clínica</h2>
-                        <MedButton
-                            style={{
-                                width: "11.25rem",
-                                padding: "0.375rem 0.75rem",
-                            }}
-                            icon={
-                                <HiOutlinePlusSm
-                                    style={{
-                                        width: "1.5rem",
-                                        height: "1.5rem",
-                                    }}
-                                />
-                            }
-                        >
-                            Nova Consulta
-                        </MedButton>
+                        <MedModal modalButton={NewConsultationButton}>
+                            <MedConsultationForm />
+                        </MedModal>
                     </div>
                     <MedTable
                         columns={columns}

@@ -9,7 +9,10 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@emotion/react": "^11.11.4",
+        "@emotion/styled": "^11.11.5",
         "@hookform/resolvers": "^3.0.1",
+        "@mui/material": "^5.15.20",
         "axios": "^1.7.2",
         "classnames": "^2.5.1",
         "jwt-decode": "^4.0.0",
@@ -19,6 +22,7 @@
         "react-hook-form": "^7.52.0",
         "react-hot-toast": "2.4.0",
         "react-icons": "^5.2.1",
+        "react-select": "^5.8.0",
         "sass": "^1.77.6",
         "yup": "^1.4.0",
         "zod": "^3.21.4"

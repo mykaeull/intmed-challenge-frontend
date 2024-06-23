@@ -27,7 +27,6 @@ api.interceptors.response.use(
     },
     (error) => {
         if (error.response && error.response.status === 401) {
-            // Token expirado ou inválido, redireciona para a página de login
             localStorage.removeItem("token");
             window.location.href = "/";
         }
