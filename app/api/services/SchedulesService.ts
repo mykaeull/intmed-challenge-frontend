@@ -8,5 +8,12 @@ export function getSchedules() {
 export function getHours() {
     // const schedulesUrl = "/schedules";
     // return api.get(schedulesUrl);
-    return { data: [{ horario: "14:30" }, { horario: "19:30" }] };
+    return {
+        data: [
+            { horario: "14:30" },
+            { horario: "16:30" },
+            { horario: "17:30" },
+            { horario: "19:30" },
+        ],
+    };
 }
