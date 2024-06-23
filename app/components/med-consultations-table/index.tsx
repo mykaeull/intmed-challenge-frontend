@@ -13,7 +13,7 @@ import { MedTable } from "../med-table";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { toast } from "react-hot-toast";
 import styles from "./index.module.scss";
-import { MedModal } from "../med-modal";
+import { MedModal, useModal } from "../med-modal";
 import { MedConsultationForm } from "../med-consultation-form";
 
 interface DataProps {
@@ -30,6 +30,10 @@ interface DataProps {
             nome: string;
         };
     };
+}
+
+interface DeleteConsultationModalProps {
+    id: number | string;
 }
 
 export const MedConsultationsTable = () => {
@@ -83,16 +87,56 @@ export const MedConsultationsTable = () => {
         }
     }
 
-    const ExtraColumnComponent = (id: number | string) => {
+    const CancelConsultationButton = (openModal: () => void) => {
         return (
             <MedButton
                 size="sm"
                 color="secondary"
                 icon={<HiOutlineX color="#49B4BB" size={16} />}
-                onClick={() => handleDeleteConsultation(id)}
+                onClick={openModal}
             >
                 Desmarcar
             </MedButton>
+        );
+    };
+
+    const DeleteConsultationModal = ({ id }: DeleteConsultationModalProps) => {
+        const { handleClose } = useModal();
+        return (
+            <>
+                <h3 style={{ marginBottom: "1.5rem" }}>Desmarcar consulta</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptatum sequi natus dignissimos, ea aliquid delectus
+                    tempore. Beatae neque ipsa unde iure porro, modi pariatur
+                    blanditiis dolores! Rerum deserunt debitis repudiandae.
+                </p>
+                <footer className={styles.footerButtons}>
+                    <MedButton
+                        type="button"
+                        color="secondary"
+                        size="lg"
+                        onClick={handleClose}
+                    >
+                        Cancelar
+                    </MedButton>
+                    <MedButton
+                        size="lg"
+                        color="destructive"
+                        onClick={() => handleDeleteConsultation(id)}
+                    >
+                        Confirmar
+                    </MedButton>
+                </footer>
+            </>
+        );
+    };
+
+    const ExtraColumnComponent = (id: number | string) => {
+        return (
+            <MedModal modalButton={CancelConsultationButton}>
+                <DeleteConsultationModal id={id} />
+            </MedModal>
         );
     };
 

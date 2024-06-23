@@ -115,6 +115,10 @@ body {
     color: #000000;
     height: 100vh;
 
+    p {
+        color: var(--gray-300) !important;
+    }
+
     h4 {
         color: var(--gray-400) !important;
     }
@@ -123,6 +127,10 @@ body {
 .dark {
     background-color: var(--gray-800);
     height: 100vh;
+
+    p {
+        color: var(--gray-400);
+    }
 
     h1,
     h2,
