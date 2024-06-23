@@ -105,11 +105,11 @@ export const MedConsultationsTable = () => {
         return (
             <>
                 <h3 style={{ marginBottom: "1.5rem" }}>Desmarcar consulta</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum sequi natus dignissimos, ea aliquid delectus
-                    tempore. Beatae neque ipsa unde iure porro, modi pariatur
-                    blanditiis dolores! Rerum deserunt debitis repudiandae.
+                <p style={{ textAlign: "justify" }}>
+                    Você está prestes a desmarcar sua consulta agendada.
+                    Desmarcar uma consulta pode afetar o cronograma dos
+                    profissionais e a disponibilidade de vagas para outros
+                    pacientes.
                 </p>
                 <footer className={styles.footerButtons}>
                     <MedButton
