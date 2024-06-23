@@ -53,7 +53,6 @@ export const MedRegisterForm = () => {
                 data.email,
                 data.password
             );
-            console.log(response);
             toast.success("Conta criada com sucesso!");
             reset();
             router.push("/");

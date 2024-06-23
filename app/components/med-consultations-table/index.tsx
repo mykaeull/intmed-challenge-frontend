@@ -127,7 +127,7 @@ export const MedConsultationsTable = () => {
                     <div className={styles.titleTable}>
                         <h2>Consulta Clínica</h2>
                         <MedModal modalButton={NewConsultationButton}>
-                            <MedConsultationForm />
+                            <MedConsultationForm refreshList={setRefresh} />
                         </MedModal>
                     </div>
                     <MedTable

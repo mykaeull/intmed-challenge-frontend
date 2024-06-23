@@ -12,6 +12,7 @@ import { getHours, getSchedules } from "@/app/api/services/SchedulesService";
 import { useModal } from "../med-modal";
 import { toast } from "react-hot-toast";
 import { MedMessageError } from "../med-message-error";
+import { setConsultatio } from "@/app/api/services/ConsultationsService";
 
 const consultationSchema = yup.object().shape({
     speciality: yup.string().required("campo obrigatório"),
@@ -27,7 +28,13 @@ interface ConsultationFormData {
     hour: string;
 }
 
-export const MedConsultationForm = () => {
+interface MedConsultationFormProps {
+    refreshList?: any;
+}
+
+export const MedConsultationForm = ({
+    refreshList,
+}: MedConsultationFormProps) => {
     const { handleClose } = useModal();
 
     const {
@@ -41,10 +48,18 @@ export const MedConsultationForm = () => {
 
     const onSubmit = async (data: ConsultationFormData) => {
         try {
-            console.log(data);
+            const schedule_date = "2023-06-20T15:00:00Z";
+            const newData = {
+                dia: data.date,
+                horario: data.hour,
+                data_agendamento: schedule_date,
+                medico: data.doctor,
+            };
+            const response = await setConsultatio(newData);
             toast.success("Consulta marcada com sucesso!");
-            // reset();
-            // handleClose();
+            reset();
+            handleClose();
+            if (refreshList) refreshList((prev: any) => !prev);
         } catch {
             console.log("error");
             toast.error("Houve um erro ao marcar a consulta.");
