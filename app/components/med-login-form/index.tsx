@@ -44,6 +44,9 @@ export const MedLoginForm = () => {
     const onSubmit = async (data: LoginFormData) => {
         try {
             const response = await doLogin(data.login, data.password);
+            setTimeout(() => {
+                console.log(response);
+            }, 10000);
             const token = response.data.token;
 
             localStorage.setItem("token", token);
