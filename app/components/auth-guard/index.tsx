@@ -8,6 +8,7 @@ import { MedTitle } from "../med-title";
 import styles from "./index.module.scss";
 import { MedButton } from "../med-button";
 import { HiOutlineUser } from "react-icons/hi";
+import { toast } from "react-hot-toast";
 import { ThemeContext } from "@/app/contexts/ThemeContext";
 
 interface AuthGuardProps {
@@ -33,14 +34,18 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
             try {
                 const decodedToken: any = jwtDecode(token);
                 const currentTime = Date.now() / 1000;
+                console.log(decodedToken.exp);
+                console.log(currentTime);
                 if (decodedToken.exp < currentTime) {
                     localStorage.removeItem("token");
+                    toast.error("Sessão expirada.");
                     router.push("/");
                 } else {
                     setLoading(false);
                 }
             } catch (error) {
                 localStorage.removeItem("token");
+                toast.error("Ocorreu um erro interno.");
                 router.push("/");
             }
         }
@@ -49,6 +54,7 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
     const handleDesconnect = () => {
         sessionStorage.removeItem("login");
         localStorage.removeItem("token");
+        toast.success("Desconectado!");
         router.push("/");
     };
 
